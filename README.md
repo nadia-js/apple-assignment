@@ -1,9 +1,9 @@
 # apple-assignment
-## clone application and install dependencies
+### clone application and install dependencies
 git clone 
-cd apple-work
+cd apple-assignment/
 npm install
-## for running locally
+### for running locally
 npm run start:local
-## for tests
+### for tests
 npm run start:test
