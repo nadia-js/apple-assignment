@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # clone application and install dependencies
 git clone 
-cd apple-assignment/
+cd apple-assignment/apple-todo
 npm install
 ## for running locally
 npm run start:local
