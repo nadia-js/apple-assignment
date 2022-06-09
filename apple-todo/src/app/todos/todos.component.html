@@ -1,1 +1,14 @@
-<h2>todos works!</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 categories">
+      <div *ngFor="let cat of todosCategories">
+       <h4>{{ cat.label | uppercase }}</h4> 
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 subCategories">
+       <div *ngFor="let subCategory of todosCategories[0]?.subCategories">
+       <h4>{{ subCategory.label | uppercase }}</h4> 
+      </div>
+    </div>
+  </div>
+</div>
