@@ -3,8 +3,11 @@ mat-grid-tile {
 }
 
 .categories {
-  background-color: aquamarine;
+  background-color: #a57fff;
 }
 .subCategories {
   background-color: rgb(122, 184, 130);
+}
+.selectedCategory{
+    background-color: chartreuse;
 }

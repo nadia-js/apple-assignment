@@ -8,9 +8,14 @@ import { TodosService } from '../todos.service';
 })
 export class TodosComponent implements OnInit {
   todosCategories: any[] = [];
+  selectedCategory: any = {};
   constructor(private todosService: TodosService) {
     this.todosCategories = todosService.getTodosCategories();
   }
 
   ngOnInit(): void {}
+
+  setSelectedCategory(category: number) {
+    this.selectedCategory = category;
+  }
 }
