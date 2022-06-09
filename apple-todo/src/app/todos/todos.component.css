@@ -8,6 +8,10 @@ mat-grid-tile {
 .subCategories {
   background-color: rgb(122, 184, 130);
 }
-.selectedCategory{
-    background-color: chartreuse;
+.selectedCategory {
+  background-color: chartreuse;
+}
+.example-form-field {
+  width: 200px;
+  color:blue
 }

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { ICategory, ISubCategory } from './model/todos';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodosService {
   // hardcoding categories instead getting from backend
-  todos_categories = [
+
+  todos_categories: ICategory[] = [
     {
       id: 1,
       label: 'grocerries',
@@ -43,7 +45,7 @@ export class TodosService {
   ];
   constructor() {}
 
-  getTodosCategories() {
+  getTodosCategories(): ICategory[] {
     return this.todos_categories;
   }
 }

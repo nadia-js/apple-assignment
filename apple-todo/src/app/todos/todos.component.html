@@ -10,13 +10,43 @@
           {{ cat.label | uppercase }}
         </button>
       </div>
-      <button class="btn btn-primary" type="button" style="margin-top: 10%">
-        Add Category
-      </button>
+      <!-- <button><mat-icon>add</mat-icon></button> -->
     </div>
     <div class="col-sm-12 col-md-6 subCategories">
-      <div *ngFor="let subCategory of selectedCategory?.subCategories">
-        <h4>{{ subCategory.label | uppercase }}</h4>
+      <div
+        *ngIf="
+          selectedCategory?.subCategories?.length === 0;
+          else other_content
+        "
+      >
+        Sub Category is not available
+      </div>
+
+      <ng-template #other_content>
+        <div *ngFor="let subCategory of selectedCategory?.subCategories">
+          <h4>{{ subCategory.label | uppercase }}</h4>
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="col-sm-12 col-md-6 categories">
+      <button class="col-2" (click)="handleAddButton()">
+        <mat-icon>{{ !isAddButtonActive ? "add" : "close" }}</mat-icon>
+      </button>
+      <div *ngIf="isAddButtonActive">
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label style="color: blue">Add new Category</mat-label>
+          <input matInput type="text" [(ngModel)]="value" />
+          <button
+            *ngIf="value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear Category"
+            (click)="addCategory(value)"
+          >
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-form-field>
       </div>
     </div>
   </div>
