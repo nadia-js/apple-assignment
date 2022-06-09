@@ -8,4 +8,7 @@ export interface ICategory {
 export interface ISubCategory {
   id: number;
   label: string;
+  isSelected?: boolean;
 }
+
+export type ICategoryTypes = 'category' | 'subCategory';

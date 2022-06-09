@@ -10,34 +10,34 @@ export class TodosService {
   todos_categories: ICategory[] = [
     {
       id: 1,
-      label: 'grocerries',
+      label: 'groceries',
       subCategories: [
         { id: 1, label: 'fruit' },
-        { id: 1, label: 'dairy' },
+        { id: 2, label: 'dairy' },
       ],
       type: 'food',
     },
     {
-      id: 1,
+      id: 2,
       label: 'tools',
       subCategories: [
         { id: 1, label: 'hammer' },
-        { id: 1, label: 'screw driver' },
+        { id: 2, label: 'screw driver' },
       ],
       type: 'device',
     },
     {
-      id: 1,
+      id: 3,
       label: 'misc',
       subCategories: [],
       type: 'other',
     },
     {
-      id: 1,
+      id: 4,
       label: 'plan for today',
       subCategories: [
         { id: 1, label: 'shopping' },
-        { id: 1, label: 'pick up kids from school' },
+        { id: 2, label: 'pick up kids from school' },
       ],
 
       type: 'planning',

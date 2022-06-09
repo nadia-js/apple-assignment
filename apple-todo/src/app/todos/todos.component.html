@@ -10,7 +10,29 @@
           {{ cat.label | uppercase }}
         </button>
       </div>
-      <!-- <button><mat-icon>add</mat-icon></button> -->
+
+      <div class="col-sm-12 col-md-6 categories">
+        <button class="col-2" (click)="handleAddButton('category')">
+          <mat-icon>{{
+            !isAddCategoryButtonActive ? "add" : "close"
+          }}</mat-icon>
+        </button>
+        <div *ngIf="isAddCategoryButtonActive">
+          <mat-form-field class="add-new-field-form" appearance="fill">
+            <mat-label style="color: blue">{{ add_new_category }}</mat-label>
+            <input matInput type="text" [(ngModel)]="categoryValue" />
+            <button
+              *ngIf="categoryValue"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear Category"
+              (click)="addCategory(categoryValue)"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
     </div>
     <div class="col-sm-12 col-md-6 subCategories">
       <div
@@ -19,30 +41,51 @@
           else other_content
         "
       >
-        Sub Category is not available
+        {{ sub_category_not_found }}
       </div>
 
       <ng-template #other_content>
-        <div *ngFor="let subCategory of selectedCategory?.subCategories">
-          <h4>{{ subCategory.label | uppercase }}</h4>
+        <div
+          *ngFor="
+            let subCategory of selectedCategory?.subCategories;
+            let i = index
+          "
+        >
+          <div class="row">
+            <div class="col-10">
+              <mat-checkbox
+                [checked]="subCategory.isSelected"
+                class="sub-category-checkbox"
+                (change)="checkSubCategory($event.checked, i)"
+              >
+                {{ subCategory.label | uppercase }}
+                {{ subCategory.isSelected | json }}
+              </mat-checkbox>
+              <!-- </div> -->
+            </div>
+            <button class="col-2" [disabled]="!subCategory.isSelected">
+              <mat-icon (click)="subCategory.isSelected && removeSubCategory(i)"
+                >delete</mat-icon
+              >
+            </button>
+          </div>
         </div>
       </ng-template>
-    </div>
-
-    <div class="col-sm-12 col-md-6 categories">
-      <button class="col-2" (click)="handleAddButton()">
-        <mat-icon>{{ !isAddButtonActive ? "add" : "close" }}</mat-icon>
+      <button class="col-2" (click)="handleAddButton('subCategory')">
+        <mat-icon>{{
+          !isAddSubCategoryButtonActive ? "add" : "close"
+        }}</mat-icon>
       </button>
-      <div *ngIf="isAddButtonActive">
-        <mat-form-field class="example-form-field" appearance="fill">
-          <mat-label style="color: blue">Add new Category</mat-label>
-          <input matInput type="text" [(ngModel)]="value" />
+      <div *ngIf="isAddSubCategoryButtonActive">
+        <mat-form-field class="add-new-field-form" appearance="fill">
+          <mat-label style="color: blue">{{ add_new_sub_category }}</mat-label>
+          <input matInput type="text" [(ngModel)]="subCategoryValue" />
           <button
-            *ngIf="value"
+            *ngIf="subCategoryValue"
             matSuffix
             mat-icon-button
-            aria-label="Clear Category"
-            (click)="addCategory(value)"
+            aria-label="Clear Sub Category"
+            (click)="addSubCategory(subCategoryValue)"
           >
             <mat-icon>add</mat-icon>
           </button>

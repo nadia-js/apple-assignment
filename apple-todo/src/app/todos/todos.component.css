@@ -3,15 +3,18 @@ mat-grid-tile {
 }
 
 .categories {
-  background-color: #a57fff;
+  background-color: #ddddc7;
 }
 .subCategories {
-  background-color: rgb(122, 184, 130);
+  background-color: rgb(223 197 197);
 }
 .selectedCategory {
-  background-color: chartreuse;
+  background-color: #1dde1d;
 }
-.example-form-field {
+.add-new-field-form {
   width: 200px;
-  color:blue
+  color: blue;
+}
+.sub-category-checkbox {
+  margin: 0 10px;
 }
